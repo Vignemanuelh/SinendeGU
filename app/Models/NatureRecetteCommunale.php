@@ -20,9 +20,6 @@ class NatureRecetteCommunale extends Model
         'taux_recouvrement',
         'preuve',
         'fichiers',
-//        'service_id',
-//        'contribuable_id',
-//        'categorie_recette_id',
         'sous_categorie_recette_id'
     ];
 
@@ -33,7 +30,7 @@ class NatureRecetteCommunale extends Model
 
     public function contribuables():BelongsToMany
     {
-        return $this->belongsToMany(Contribuable::class);
+        return $this->belongsToMany(Contribuable::class, 'contribuable_nature_recette', 'nature_recette_communale_id', 'contribuable_id');
     }
 
     public function service():BelongsTo
@@ -46,8 +43,4 @@ class NatureRecetteCommunale extends Model
         return $this->belongsTo(Contribuable::class);
     }
 
-    public function recouvrements():HasMany
-    {
-        return $this->hasMany(Recouvrir::class);
-    }
 }

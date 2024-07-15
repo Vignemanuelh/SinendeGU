@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -16,84 +15,104 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'nom' => 'User 1',
-                'prenom' => 'User 1',
-                'titre' => 'User 1',
-                'email' => 'user1@example.com',
+                'nom' => 'Agent Collecteurs',
+                'prenom' => 'Agent Collecteurs',
+                'titre' => 'Agent Collecteurs',
+                'email' => 'user0@example.com',
                 'telephone' => '123456789',
                 'npi' => '12345678590',
                 'password' => bcrypt('password'),
-                'role' => 'Agent recenseur recettes non fiscales'
+                'roles' => ['3', '4',  '6']
             ],
             [
-                'nom' => 'User 2',
-                'prenom' => 'User 2',
-                'titre' => 'User 2',
+                'nom' => 'CSMR',
+                'prenom' => 'CSMR',
+                'titre' => 'CSMR',
+                'email' => 'user1@example.com',
+                'telephone' => '123456789',
+                'npi' => '123456790',
+                'password' => bcrypt('password'),
+                'roles' => ['1', '2',  '5']
+            ],
+            [
+                'nom' => 'DADE',
+                'prenom' => 'DADE',
+                'titre' => 'DADE',
+                'email' => 'user14@example.com',
+                'telephone' => '123456789',
+                'npi' => '75123456790',
+                'password' => bcrypt('password'),
+                'roles' => ['1', '3', '5', '6']
+            ],
+            [
+                'nom' => 'GU',
+                'prenom' => 'GU',
+                'titre' => 'GU',
+                'email' => 'user13@example.com',
+                'telephone' => '123456789',
+                'npi' => '758123456790',
+                'password' => bcrypt('password'),
+                'roles' => ['1', '3', '5', '6']
+            ],
+            [
+                'nom' => 'Etat Civil',
+                'prenom' => 'Etat Civil',
+                'titre' => 'Etat Civil',
+                'email' => 'user12@example.com',
+                'telephone' => '123456789',
+                'npi' => '75812356790',
+                'password' => bcrypt('password'),
+                'roles' => ['1', '3', '5', '6']
+            ],
+            [
+                'nom' => 'DAAF',
+                'prenom' => 'DAAF',
+                'titre' => 'DAAF',
                 'email' => 'user2@example.com',
                 'telephone' => '123456789',
-                'npi' => '12348567890',
+                'npi' => '7581235790',
                 'password' => bcrypt('password'),
-                'role' => 'Agent recenseur recettes fiscales'
+                'roles' => ['1', '3', '5', '6']
             ],
             [
-                'nom' => 'User 3',
-                'prenom' => 'User 3',
-                'titre' => 'User 3',
+                'nom' => 'TC',
+                'prenom' => 'TC',
+                'titre' => 'TC',
                 'email' => 'user3@example.com',
                 'telephone' => '123456789',
                 'npi' => '12345367890',
                 'password' => bcrypt('password'),
-                'role' => 'Chef Service de recouvrement'
+                'roles' => ['1', '2',  '5', '7']
             ],
             [
-                'nom' => 'User 4',
-                'prenom' => 'User 4',
-                'titre' => 'User 4',
+                'nom' => 'RAI',
+                'prenom' => 'RAI',
+                'titre' => 'RAI',
                 'email' => 'user4@example.com',
                 'telephone' => '123456789',
                 'npi' => '12345676890',
                 'password' => bcrypt('password'),
-                'role' => 'DAAF'
+                'roles' => ['3', '4', '6', '7']
             ],
             [
-                'nom' => 'User 5',
-                'prenom' => 'User 5',
-                'titre' => 'User 5',
+                'nom' => 'SE',
+                'prenom' => 'SE',
+                'titre' => 'SE',
                 'email' => 'user5@example.com',
                 'telephone' => '123456789',
                 'npi' => '1234567890',
                 'password' => bcrypt('password'),
-                'role' => 'TC'
+                'roles' => ['1', '3', '5', '6']
             ],
             [
-                'nom' => 'User 6',
-                'prenom' => 'User 6',
-                'titre' => 'User 6',
+                'nom' => 'DSI',
+                'prenom' => 'DSI',
+                'titre' => 'DSI',
                 'email' => 'user6@example.com',
                 'telephone' => '123456789',
                 'npi' => '12341567890',
                 'password' => bcrypt('password'),
-                'role' => 'RAI'
-            ],
-            [
-                'nom' => 'User 7',
-                'prenom' => 'User 7',
-                'titre' =>  'User7',
-                'email' => 'user7@example.com',
-                'telephone' =>  '123658974',
-                'npi' =>    '12536478915',
-                'password' => bcrypt('password'),
-                'role' => 'SE'
-            ],
-            [
-                'nom' => 'User 8',
-                'prenom' => 'User 8',
-                'titre' =>  'User8',
-                'email' => 'user8@example.com',
-                'telephone' =>  '1238974',
-                'npi' =>    '1257856478915',
-                'password' => bcrypt('password'),
-                'role' => 'DSI'
+                'roles' => ['1', '2', '3', '4', '5', '6', '7']
             ],
         ];
 
@@ -108,8 +127,11 @@ class UserSeeder extends Seeder
                 'password' => $userData['password']
             ]);
 
-            $role = Role::where('nom', $userData['role'])->first();
-            $user->roles()->attach($role);
+            foreach ($userData['roles'] as $roleName) {
+                $role = Role::find($roleName);
+//                $role = Role::where('nom', $roleName)->first();
+                $user->roles()->attach($role);
+            }
         }
     }
 }

@@ -11,6 +11,11 @@
                             <span id="card_title">
                                 {{ __('Recettess Non Fiscales') }}
                             </span>
+                            <div class="float-right">
+                                <a href="{{ route('nature-recette-communale.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    {{ __('Create New') }}
+                                </a>
+                            </div>
 
                         </div>
                     </div>
@@ -68,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-{{--                {!! $recette_non_fiscale->links() !!}--}}
+                {!! $recettes_non_fiscales->links() !!}
             </div>
         </div>
     </div>

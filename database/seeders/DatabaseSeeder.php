@@ -14,19 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            SecretariatExecutifSeeder::class,
             CommuneSeeder::class,
             CategorieRecetteSeeder::class,
             SousCategorieRecetteSeeder::class,
             ContribuableSeeder::class,
             PieceJustificativeSeeder::class,
-//            AgentCollecteurSeeder::class,
             NatureRecetteCommunaleSeeder::class,
-//            ServiceSeeder::class,
-            RecouvrirSeeder::class,
-            TransmettreSeeder::class,
-            UserSeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
 //            CategorieRecetteContribuableSeeder::class,
         ]);
         // User::factory(10)->create();

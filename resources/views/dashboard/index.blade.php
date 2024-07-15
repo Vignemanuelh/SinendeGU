@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <!--begin::Head-->
 @include('partials.dashboard.head')
 <!--end::Head-->

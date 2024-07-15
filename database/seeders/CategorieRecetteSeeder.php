@@ -10,6 +10,16 @@ class CategorieRecetteSeeder extends Seeder
 {
     public function run()
     {
-//        CategorieRecette::factory()->count(2)->create();
+        CategorieRecette::create([
+            'code' => 'CAT001',
+            'nom' => 'Recettes fiscales',
+            'commune_id' => 1,
+        ]);
+
+        CategorieRecette::create([
+            'code' => 'CAT002',
+            'nom' => 'Recettes non fiscales',
+            'commune_id' => 1,
+        ]);
     }
 }

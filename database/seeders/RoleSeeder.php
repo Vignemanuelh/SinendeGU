@@ -14,14 +14,13 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $roles = [
-            'Agent recenseur recettes non fiscales',
-            'Agent recenseur recettes fiscales',
-            'Chef Service de recouvrement',
-            'DAAF',
-            'TC',
-            'RAI',
-            'SE',
-            'DSI',
+            'Liste des recettes non fiscales',
+            'taux/tarif/montant de chaque nature de recettes non fiscales',
+            'Liste des recettes fiscales',
+            'taux/tarif/montant de chaque nature de recettes fiscales',
+            'Liste des contribuables des recettes non fiscales',
+            'Liste des contribuables des recettes fiscales',
+            'taux/tarif/montant du par chaque contribuable',
         ];
 
         foreach ($roles as $role) {

@@ -33,9 +33,9 @@ class CategorieRecetteController extends Controller
         $request->validate([
             'code' => 'required|string',
             'nom' => 'required|string',
-            'montant_estime' => 'required|decimal:2',
-            'montant_recouvre' => 'required|decimal:2',
-            'taux_recouvrement' => 'required|decimal:2',
+            'montant_estime' => 'nullable|decimal:2',
+            'montant_recouvre' => 'nullable|decimal:2',
+            'taux_recouvrement' => 'nullable|decimal:2',
             'commune_id' => 'required|exists:communes,id',
             'col1' => 'required|string',
         ]);
@@ -79,9 +79,9 @@ class CategorieRecetteController extends Controller
         $request->validate([
             'code' => 'required|string',
             'nom' => 'required|string',
-            'montant_estime' => 'required|decimal:2',
-            'montant_recouvre' => 'required|decimal:2',
-            'taux_recouvrement' => 'required|decimal:2',
+            'montant_estime' => 'nullable|decimal:2',
+            'montant_recouvre' => 'nullable|decimal:2',
+            'taux_recouvrement' => 'nullable|decimal:2',
             'commune_id' => 'required|exists:communes,id',
             'col1' => 'required|string',
         ]);

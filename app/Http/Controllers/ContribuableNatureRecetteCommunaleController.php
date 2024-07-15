@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContribuableNatureRecetteCommunale;
+use App\Models\ContribuableNatureRecette;
 use Illuminate\Http\Request;
 
 class ContribuableNatureRecetteCommunaleController extends Controller
@@ -34,7 +34,7 @@ class ContribuableNatureRecetteCommunaleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ContribuableNatureRecetteCommunale $contribuableNatureRecetteCommunale)
+    public function show(ContribuableNatureRecette $contribuableNatureRecetteCommunale)
     {
         //
     }
@@ -42,7 +42,7 @@ class ContribuableNatureRecetteCommunaleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ContribuableNatureRecetteCommunale $contribuableNatureRecetteCommunale)
+    public function edit(ContribuableNatureRecette $contribuableNatureRecetteCommunale)
     {
         //
     }
@@ -50,7 +50,7 @@ class ContribuableNatureRecetteCommunaleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ContribuableNatureRecetteCommunale $contribuableNatureRecetteCommunale)
+    public function update(Request $request, ContribuableNatureRecette $contribuableNatureRecetteCommunale)
     {
         //
     }
@@ -58,7 +58,7 @@ class ContribuableNatureRecetteCommunaleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ContribuableNatureRecetteCommunale $contribuableNatureRecetteCommunale)
+    public function destroy(ContribuableNatureRecette $contribuableNatureRecetteCommunale)
     {
         //
     }

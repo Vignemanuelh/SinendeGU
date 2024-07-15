@@ -29,7 +29,7 @@ class CommuneController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'num_compte' => 'required|string',
+            'num_compte' => 'nullable|string',
             'departement' => 'required|string',
             'nom' => 'required|string',
             'statut' => 'required|string',
@@ -70,7 +70,7 @@ class CommuneController extends Controller
     public function update(Request $request, Commune $commune)
     {
         $request->validate([
-            'num_compte' => 'required|string',
+            'num_compte' => 'nullable|string',
             'departement' => 'required|string',
             'nom' => 'required|string',
             'statut' => 'required|string',

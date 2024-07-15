@@ -54,18 +54,9 @@
                                     {{ $natureRecetteCommunale->fichiers }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Contribuable Id:</strong>
-                                    {{ $natureRecetteCommunale->contribuable_id }}
+                                    <strong>Sous Categorie Recette :</strong>
+                                    {{ $natureRecetteCommunale->sousCategorieRecette->nom }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Categorie Recette Id:</strong>
-                                    {{ $natureRecetteCommunale->categorie_recette_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Sous Categorie Recette Id:</strong>
-                                    {{ $natureRecetteCommunale->sous_categorie_recette_id }}
-                                </div>
-
                     </div>
                 </div>
             </div>

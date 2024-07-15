@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('nom');
-            $table->decimal('montant_estime');
-            $table->decimal('montant_recouvre');
-            $table->decimal('taux_recouvrement');
-            $table->string('col1');
+            $table->decimal('montant_estime')->default(0.00);
+            $table->decimal('montant_recouvre')->default(0.00);
+            $table->decimal('taux_recouvrement')->default(0.00);
             $table->unsignedBigInteger('commune_id');
             $table->foreign('commune_id')->references('id')->on('communes')->onDelete('cascade');
             $table->timestamps();

@@ -10,12 +10,12 @@ use App\Models\SousCategorieRecette;
 use Illuminate\Http\Request;
 use Exception;
 
-class ActionController extends Controller
+class   ActionController extends Controller
 {
     //
     public function recette_non_fiscale(){
         try {
-            $categorie = CategorieRecette::find(4);
+            $categorie = CategorieRecette::find(2);
             $recettes_non_fiscales = $categorie->natureRecetteCommunales()->paginate();
             return view('recettes.non_fiscales', ['recettes_non_fiscales' => $recettes_non_fiscales]);
         }catch(Exception $e){
@@ -24,7 +24,7 @@ class ActionController extends Controller
     }
     public function recette_fiscale(){
             try {
-                $categorie = CategorieRecette::find(5);
+                $categorie = CategorieRecette::find(1);
                 $recettes_fiscales = $categorie->natureRecetteCommunales()->paginate();
                 return view('recettes.fiscales', ['recettes_fiscales' => $recettes_fiscales]);
             }catch(Exception $e){
@@ -33,7 +33,7 @@ class ActionController extends Controller
         }
      public function contribuableFiscale(){
             try {
-                $contribuables = CategorieRecette::find(4)->contribuables()->paginate();
+                $contribuables = CategorieRecette::find(1)->contribuables()->paginate();
                 return view('contribuables.recettes-fiscales', ['contribuables' => $contribuables]);
             }catch(Exception $e){
                 return $e->getMessage();
@@ -41,7 +41,7 @@ class ActionController extends Controller
         }
     public function contribuableNonFiscale(){
             try {
-                $contribuables = CategorieRecette::find(1)->contribuables()->paginate();
+                $contribuables = CategorieRecette::find(2)->contribuables()->paginate();
                 return view('contribuables.recettes-non-fiscales', ['contribuables' => $contribuables]);
             }catch(Exception $e){
                 return $e->getMessage();

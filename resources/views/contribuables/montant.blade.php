@@ -13,11 +13,12 @@
                                 {{ $contribuable->nom.' '.$contribuable->prenom }}
                             </span>
 
-{{--                            <div class="float-right">--}}
-{{--                                <a href="{{ route('nature-recette-communale.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">--}}
-{{--                                    {{ __('Create New') }}--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
+
+                            <div class="float-right">
+                                <a href="{{ route('nature-recette-communale.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    {{ __('Create New') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('status'))
@@ -80,6 +81,6 @@
         </div>
         @endforeach
     </div>
-    {!! $contribuables->links() !!}
+{{--    {!! $contribuables->links() !!}--}}
 
 @endsection

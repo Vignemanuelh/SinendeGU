@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('communes', function (Blueprint $table) {
             $table->id();
-            $table->string('num_compte');
+            $table->integer('num_compte')->default(0);
             $table->string('departement');
             $table->string('nom');
             $table->string('statut');

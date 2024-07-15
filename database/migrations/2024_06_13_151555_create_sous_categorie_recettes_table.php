@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('nom');
-            $table->decimal('montant_estime');
-            $table->decimal('montant_recouvre');
-            $table->decimal('taux_recouvrement');
+            $table->decimal('montant_estime')->default(0.00);
+            $table->decimal('montant_recouvre')->default(0.00);
+            $table->decimal('taux_recouvrement')->default(0.00);
             $table->unsignedBigInteger('categorie_recette_id');
             $table->foreign('categorie_recette_id')->references('id')->on('categorie_recettes');
             $table->timestamps();

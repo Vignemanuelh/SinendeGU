@@ -10,6 +10,6 @@ class ContribuableSeeder extends Seeder
 {
     public function run()
     {
-        Contribuable::factory()->count(2)->create();
+        Contribuable::factory()->count(10)->create();
     }
 }

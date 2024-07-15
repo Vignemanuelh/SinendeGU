@@ -40,9 +40,7 @@
 									<th >Taux Recouvrement</th>
 									<th >Preuve</th>
 									<th >Fichiers</th>
-									<th >Contribuable Id</th>
-									<th >Categorie Recette Id</th>
-									<th >Sous Categorie Recette Id</th>
+									<th >Sous Categorie Recette</th>
 
                                         <th>Actions</th>
                                     </tr>
@@ -60,9 +58,7 @@
 										<td >{{ $natureRecetteCommunale->taux_recouvrement }}</td>
 										<td >{{ $natureRecetteCommunale->preuve }}</td>
 										<td >{{ $natureRecetteCommunale->fichiers }}</td>
-										<td >{{ $natureRecetteCommunale->contribuable_id }}</td>
-										<td >{{ $natureRecetteCommunale->categorie_recette_id }}</td>
-										<td >{{ $natureRecetteCommunale->sous_categorie_recette_id }}</td>
+										<td >{{ $natureRecetteCommunale->sousCategorieRecette->nom }}</td>
 
                                             <td>
                                                 <form class="d-flex justify-content-around align-item-center" action="{{ route('nature-recette-communale.destroy', $natureRecetteCommunale->id) }}" method="POST">

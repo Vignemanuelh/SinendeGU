@@ -31,7 +31,7 @@ class Contribuable extends Model
 
     public function natureRecettes():BelongsToMany
     {
-        return $this->belongsToMany(NatureRecetteCommunale::class);
+        return $this->belongsToMany(NatureRecetteCommunale::class, 'contribuable_nature_recette');
     }
 
     public function natureRecetteCommunales():HasMany

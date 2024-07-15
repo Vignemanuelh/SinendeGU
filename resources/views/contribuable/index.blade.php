@@ -50,7 +50,7 @@
                                 <tbody>
                                     @foreach ($contribuables as $contribuable)
                                         <tr>
-                                            <td class="ms-2">{{ $loop->index + 1 }}</td>
+                                            <td class="ps-2">{{ $loop->index + 1 }}</td>
 
 										<td >{{ $contribuable->identifiant }}</td>
 										<td >{{ $contribuable->nom }}</td>

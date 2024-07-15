@@ -19,7 +19,6 @@
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <link href="{{asset("https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css")}}" rel="stylesheet" />
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
 <!--end::Head-->

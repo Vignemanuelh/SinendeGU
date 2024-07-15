@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NatureRecetteCommunale;
+use App\Models\SousCategorieRecette;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -10,7 +11,7 @@ class NatureRecetteCommunaleController extends Controller
     public function index()
     {
         try {
-            $natureRecetteCommunales = NatureRecetteCommunale::paginate();
+            $natureRecetteCommunales = NatureRecetteCommunale::with('sousCategorieRecette')->paginate();
             return view('nature-recette-communale.index', ['natureRecetteCommunales' => $natureRecetteCommunales]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -20,7 +21,8 @@ class NatureRecetteCommunaleController extends Controller
     public function create()
     {
         try {
-            return view('nature-recette-communale.create');
+            $sousCategorieRecettes = SousCategorieRecette::all();
+            return view('nature-recette-communale.create', ['sousCategorieRecettes' => $sousCategorieRecettes]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -32,15 +34,12 @@ class NatureRecetteCommunaleController extends Controller
             $request->validate([
                 'code' => 'required|string',
                 'nom' => 'required|string',
-                'tarif' => 'required|decimal:2',
-                'montant_estime' => 'required|decimal:2',
-                'montant_recouvre' => 'required|decimal:2',
-                'taux_recouvrement' => 'required|decimal:2',
-                'preuve' => 'required|string',
-                'fichiers' => 'required|string',
-//                'service_id' => 'required|exists:services,id',
-//                'contribuable_id' => 'required|exists:contribuables,id',
-                'categorie_recette_id' => 'required|exists:categorie_recettes,id',
+                'tarif' => 'nullable|decimal:2',
+                'montant_estime' => 'nullable|decimal:2',
+                'montant_recouvre' => 'nullable|decimal:2',
+                'taux_recouvrement' => 'nullable|decimal:2',
+                'preuve' => 'nullable|string',
+                'fichiers' => 'nullable|string',
                 'sous_categorie_recette_id' => 'required|exists:sous_categorie_recettes,id',
             ]);
 
@@ -53,9 +52,6 @@ class NatureRecetteCommunaleController extends Controller
             $natureRecetteCommunale->taux_recouvrement = $request->taux_recouvrement;
             $natureRecetteCommunale->preuve = $request->preuve;
             $natureRecetteCommunale->fichiers = $request->fichiers;
-//            $natureRecetteCommunale->service_id = $request->service_id;
-//            $natureRecetteCommunale->contribuable_id = $request->contribuable_id;
-            $natureRecetteCommunale->categorie_recette_id = $request->categorie_recette_id;
             $natureRecetteCommunale->sous_categorie_recette_id = $request->sous_categorie_recette_id;
             $natureRecetteCommunale->save();
 
@@ -69,6 +65,7 @@ class NatureRecetteCommunaleController extends Controller
     public function show(NatureRecetteCommunale $natureRecetteCommunale)
     {
         try {
+            $natureRecetteCommunale = NatureRecetteCommunale::with('sousCategorieRecette')->find($natureRecetteCommunale->id);
             return view('nature-recette-communale.show', ['natureRecetteCommunale' => $natureRecetteCommunale]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -78,7 +75,9 @@ class NatureRecetteCommunaleController extends Controller
     public function edit(NatureRecetteCommunale $natureRecetteCommunale)
     {
         try {
-            return view('nature-recette-communale.edit', ['natureRecetteCommunale' => $natureRecetteCommunale]);
+            $natureRecetteCommunale = NatureRecetteCommunale::with('sousCategorieRecette')->find($natureRecetteCommunale->id);
+            $sousCategorieRecettes = SousCategorieRecette::all();
+            return view('nature-recette-communale.edit', ['natureRecetteCommunale' => $natureRecetteCommunale, 'sousCategorieRecettes' => $sousCategorieRecettes]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -90,15 +89,12 @@ class NatureRecetteCommunaleController extends Controller
             $request->validate([
                 'code' => 'required|string',
                 'nom' => 'required|string',
-                'tarif' => 'required|decimal:2',
-                'montant_estime' => 'required|decimal:2',
-                'montant_recouvre' => 'required|decimal:2',
-                'taux_recouvrement' => 'required|decimal:2',
-                'preuve' => 'required|string',
-                'fichiers' => 'required|string',
-//            'service_id' => 'required|exists:services,id',
-//                'contribuable_id' => 'required|exists:contribuables,id',
-                'categorie_recette_id' => 'required|exists:categorie_recettes,id',
+                'tarif' => 'nullable|decimal:2',
+                'montant_estime' => 'nullable|decimal:2',
+                'montant_recouvre' => 'nullable|decimal:2',
+                'taux_recouvrement' => 'nullable|decimal:2',
+                'preuve' => 'nullable|string',
+                'fichiers' => 'nullable|string',
                 'sous_categorie_recette_id' => 'required|exists:sous_categorie_recettes,id',
             ]);
 
@@ -110,9 +106,6 @@ class NatureRecetteCommunaleController extends Controller
             $natureRecetteCommunale->taux_recouvrement = $request->taux_recouvrement;
             $natureRecetteCommunale->preuve = $request->preuve;
             $natureRecetteCommunale->fichiers = $request->fichiers;
-//        $natureRecetteCommunale->service_id = $request->service_id;
-//            $natureRecetteCommunale->contribuable_id = $request->contribuable_id;
-            $natureRecetteCommunale->categorie_recette_id = $request->categorie_recette_id;
             $natureRecetteCommunale->sous_categorie_recette_id = $request->sous_categorie_recette_id;
             $natureRecetteCommunale->save();
 

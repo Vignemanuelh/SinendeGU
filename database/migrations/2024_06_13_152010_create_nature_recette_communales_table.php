@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('nom');
-            $table->decimal('tarif', 10, 2);
-            $table->decimal('montant_estime', 10, 2);
-            $table->decimal('montant_recouvre', 10, 2);
-            $table->decimal('taux_recouvrement', 5, 2);
+            $table->decimal('tarif', 10, 2)->default(0.00);
+            $table->decimal('montant_estime', 10, 2)->default(0.00);
+            $table->decimal('montant_recouvre', 10, 2)->default(0.00);
+            $table->decimal('taux_recouvrement', 5, 2)->default(0.00);
             $table->string('preuve')->nullable();
             $table->string('fichiers')->nullable();
             $table->unsignedBigInteger('sous_categorie_recette_id');

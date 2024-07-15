@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorie_recette_contribuables', function (Blueprint $table) {
+        Schema::create('categorie_recette_contribuable', function (Blueprint $table) {
             $table->id();
             $table->foreignId('categorie_recette_id')->constrained();
             $table->foreignId('contribuable_id')->constrained();
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorie_recette_contribuables');
+        Schema::dropIfExists('categorie_recette_contribuable');
     }
 };

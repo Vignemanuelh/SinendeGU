@@ -109,14 +109,6 @@
                     </a>
                 </div>
                 <div class="menu-item mb-1">
-                    <a href="{{ route('agent-collecteur.index') }}">
-                        <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
-                            <span class="menu-title">Agent Collecteur</span>
-                        </span>
-                    </a>
-                </div>
-                <div class="menu-item mb-1">
                     <a href="{{ route('categorie-recette.index') }}">
                         <span class="menu-link">
                             <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
@@ -157,42 +149,10 @@
                     </a>
                 </div>
                 <div class="menu-item mb-1">
-                    <a href="{{ route('recouvrir.index') }}">
-                        <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
-                            <span class="menu-title">Recouvrir</span>
-                        </span>
-                    </a>
-                </div>
-                <div class="menu-item mb-1">
-                    <a href="{{ route('secretariat-executif.index') }}">
-                        <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
-                            <span class="menu-title">Sécrétariat Exécutif </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="menu-item mb-1">
-                    <a href="{{ route('service.index') }}">
-                        <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
-                            <span class="menu-title">Service</span>
-                        </span>
-                    </a>
-                </div>
-                <div class="menu-item mb-1">
                     <a href="{{ route('sous-categorie-recette.index') }}">
                         <span class="menu-link">
                             <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
                             <span class="menu-title">Sous Catégorie Recette</span>
-                        </span>
-                    </a>
-                </div>
-                <div class="menu-item mb-1">
-                    <a href="{{ route('transmettre.index') }}">
-                        <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
-                            <span class="menu-title">Transmettre</span>
                         </span>
                     </a>
                 </div>
@@ -203,16 +163,8 @@
     </div>
     <!--end::Aside menu-->
     <!--begin::Footer-->
-    <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-        <a href="" class="btn btn-custom btn-primary w-100"
-           data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
-           title="Consulter les FAQ">
-            <span class="btn-label">FAQ</span>
-            <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
-            <span class="svg-icon svg-icon-2"><i class="fa fa-question"></i></span>
-            <!--end::Svg Icon-->
-        </a>
-    </div>
+{{--    <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">--}}
+{{--    </div>--}}
     <!--end::Footer-->
 </div>
 <!--end::Aside-->

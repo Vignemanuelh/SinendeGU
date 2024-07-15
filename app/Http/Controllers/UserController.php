@@ -62,7 +62,8 @@ class UserController extends Controller
     public function show(User $user)
     {
         try {
-            return view('user.show', ['user' => $user]);
+            $roles = $user->roles()->get();
+            return view('user.show', ['user' => $user, 'roles' => $roles]);
         } catch (Exception $e) {
             return $e->getMessage();
         }

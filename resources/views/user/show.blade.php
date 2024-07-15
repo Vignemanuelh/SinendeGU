@@ -40,8 +40,8 @@
                         <div class="form-group">
                             <strong>{{ __('Rôles') }}:</strong>
                             <ul>
-                                @foreach($user->roles as $role)
-                                    <li>{{ $role->name }}</li>
+                            @foreach($roles as $role)
+                                    <li>{{ $role->nom }}</li>
                                 @endforeach
                             </ul>
                         </div>

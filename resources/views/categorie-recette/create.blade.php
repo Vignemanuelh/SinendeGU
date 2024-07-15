@@ -71,11 +71,6 @@
                                             </div>
                                             {!! $errors->first('taux_recouvrement', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                                         </div>
-                                        <div class="form-group col-6 mb-2 mb20">
-                                            <label for="col1" class="form-label">{{ __('Col1') }}</label>
-                                            <input type="text" name="col1" class="form-control @error('col1') is-invalid @enderror"  id="col1" placeholder="Col1">
-                                            {!! $errors->first('col1', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt20 mt-2">

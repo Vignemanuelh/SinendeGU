@@ -38,7 +38,7 @@
                                 <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td class="ps-2">{{ $loop->index + 1 }}</td>
                                         <td>{{ $user->nom }}</td>
                                         <td>{{ $user->prenom }}</td>
                                         <td>{{ $user->titre }}</td>
