@@ -9,7 +9,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Contribuables') }}
+                                {{ __('Contribuables recettes fiscales') }}
                             </span>
 
                             <div class="float-right">
@@ -50,6 +50,7 @@
                                 <tbody>
                                 @foreach ($contribuables as $contribuable)
                                     <tr>
+                                        @dd($contribuables)
                                         <td class="ms-2">{{ $loop->index + 1 }}</td>
 
                                         <td >{{ $contribuable->identifiant }}</td>

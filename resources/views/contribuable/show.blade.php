@@ -64,10 +64,6 @@
                             <strong>Maison:</strong>
                             {{ $contribuable->maison }}
                         </div>
-                        <div class="form-group mb-2 mb20">
-                            <strong>Commune :</strong>
-                            {{ $categorieRecette->commune->nom }}
-                        </div>
                     </div>
                 </div>
             </div>
