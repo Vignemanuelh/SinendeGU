@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieRecette;
+use App\Models\Commune;
 use App\Models\Contribuable;
 use App\Models\NatureRecetteCommunale;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class ContribuableController extends Controller
     public function index()
     {
         try {
-            $contribuables = Contribuable::paginate();
+            $contribuables = Contribuable::with('communes')->paginate();
             return view('contribuable.index', ['contribuables' => $contribuables]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -22,9 +23,10 @@ class ContribuableController extends Controller
     public function create()
     {
         try {
+            $communes = Commune::all();
             $categorieRecettes = CategorieRecette::all();
             $naturesRecettesCommunales = NatureRecetteCommunale::all();
-            return view('contribuable.create', ['categorieRecettes' => $categorieRecettes, 'naturesRecettesCommunales' => $naturesRecettesCommunales]);
+            return view('contribuable.create', ['categorieRecettes' => $categorieRecettes, 'naturesRecettesCommunales' => $naturesRecettesCommunales, 'communes' => $communes]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -44,6 +46,7 @@ class ContribuableController extends Controller
             'arrondissement' => 'required|string',
             'quartier' => 'required|string',
             'maison' => 'required|string',
+            'commune_id'=>'required|exists:communes,id',
         ]);
 
         $contribuable = new Contribuable();
@@ -58,6 +61,7 @@ class ContribuableController extends Controller
         $contribuable->arrondissement = $request->arrondissement;
         $contribuable->quartier = $request->quartier;
         $contribuable->maison = $request->maison;
+        $contribuable->commune_id = $request->commune_id;
         $contribuable->save();
         $contribuable->categorieRecettes()->attach($request->recettes);
         $contribuable->natureRecettes()->attach($request->natures);
@@ -67,6 +71,7 @@ class ContribuableController extends Controller
     public function show(Contribuable $contribuable)
     {
         try {
+            $contribuable = Contribuable::with('communes')->find($contribuable->id);
             return view('contribuable.show', ['contribuable' => $contribuable]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -76,10 +81,11 @@ class ContribuableController extends Controller
     public function edit(Contribuable $contribuable)
     {
         try {
+            $communes = Commune::all();
             $contribuable = Contribuable::with('categorieRecettes')->find($contribuable->id);
             $categorieRecettes = CategorieRecette::all();
             $naturesRecettesCommunales = NatureRecetteCommunale::all();
-            return view('contribuable.edit', ['contribuable' => $contribuable, 'categorieRecettes' => $categorieRecettes, 'naturesRecettesCommunales' => $naturesRecettesCommunales]);
+            return view('contribuable.edit', ['contribuable' => $contribuable, 'categorieRecettes' => $categorieRecettes, 'naturesRecettesCommunales' => $naturesRecettesCommunales, 'communes' => $communes]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -99,6 +105,7 @@ class ContribuableController extends Controller
             'arrondissement' => 'required|string',
             'quartier' => 'required|string',
             'maison' => 'required|string',
+            'commune_id'=>'required|exists:communes,id',
         ]);
 
         $contribuable->identifiant = $request->identifiant;
@@ -112,6 +119,7 @@ class ContribuableController extends Controller
         $contribuable->arrondissement = $request->arrondissement;
         $contribuable->quartier = $request->quartier;
         $contribuable->maison = $request->maison;
+        $contribuable->commune_id = $request->commune_id;
         $contribuable->save();
         $contribuable->categorieRecettes()->syncWithoutDetaching($request->recettes);
         $contribuable->natureRecettes()->syncWithoutDetaching($request->natures);

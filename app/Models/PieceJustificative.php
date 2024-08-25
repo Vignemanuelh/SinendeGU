@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PieceJustificative extends Model
@@ -12,11 +13,13 @@ class PieceJustificative extends Model
 
     protected $fillable = [
         'code',
-        'nom'
+        'nom',
+        'nature_recette_communale_id'
     ];
 
-    public function transmissions():HasMany
+
+    public function natureRecetteCommunale():BelongsTo
     {
-        return $this->hasMany(Transmettre::class);
+        return $this->belongsTo(NatureRecetteCommunale::class);
     }
 }

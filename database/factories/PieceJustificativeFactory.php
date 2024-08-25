@@ -13,6 +13,7 @@ class PieceJustificativeFactory extends Factory
         return [
             'code' => $this->faker->unique()->numerify('PJ-#####'),
             'nom' => $this->faker->word,
+            'nature_recette_communale_id' => $this->faker->numberBetween(1,10)
         ];
     }
 }

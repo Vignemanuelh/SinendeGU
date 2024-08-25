@@ -1,6 +1,5 @@
 <div class="row padding-1 p-1">
     <div class="col-md-12">
-
         <div class="form-group mb-2 mb20">
             <label for="identifiant" class="form-label">{{ __('Identifiant') }}</label>
             <input type="text" name="identifiant" class="form-control @error('identifiant') is-invalid @enderror" value="{{ old('identifiant', $contribuable?->identifiant) }}" id="identifiant" placeholder="Identifiant">
@@ -76,7 +75,18 @@
             </select>
             {!! $errors->first('categorieRecette_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-
+        <div class="form-group col-12 mb-2 mb20">
+            <div class="d-flex flex-column">
+                <label for="commune_id" class="form-label">{{ __('Commune') }}</label>
+                <select id="commune_id" class="form-control select2" name="commune_id">
+                    <option value="{{ $contribuable->commune_id }}">{{$contribuable->commune->nom}}</option>
+                    @foreach($communes as $commune)
+                        <option value="{{  $commune->id }}">{{ $commune->nom }}</option>
+                    @endforeach
+                </select>
+            </div>
+            {!! $errors->first('commune_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+        </div>
     </div>
     <div class="col-md-12 mt20 mt-2">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

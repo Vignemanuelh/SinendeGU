@@ -49,7 +49,7 @@ class   ActionController extends Controller
         }
         public function contribuableDu(){
             try {
-                $contribuables = Contribuable::with('natureRecettes')->paginate();
+                $contribuables = Contribuable::with('natureRecettes', 'paiements', 'montantContribuable')->paginate();
                 return view('contribuables.montant', ['contribuables' => $contribuables]);
             }catch(Exception $e){
                 return $e->getMessage();

@@ -42,6 +42,7 @@
                                     <th >Taux Recouvrement</th>
                                     <th >Preuve</th>
                                     <th >Fichiers</th>
+                                    <th >Montat Du</th>
 
                                     <th>Actions</th>
                                 </tr>
@@ -49,7 +50,7 @@
                                 <tbody>
                                 @foreach ($contribuable->natureRecettes as $natureRecetteCommunale)
                                     <tr>
-                                        <td class="ps-2">{{$loop->index }}</td>
+                                        <td class="ps-2">{{$loop->index+1 }}</td>
 
                                         <td >{{ $natureRecetteCommunale->code }}</td>
                                         <td >{{ $natureRecetteCommunale->nom }}</td>
@@ -59,8 +60,11 @@
                                         <td >{{ $natureRecetteCommunale->taux_recouvrement }}</td>
                                         <td >{{ $natureRecetteCommunale->preuve }}</td>
                                         <td >{{ $natureRecetteCommunale->fichiers }}</td>
-
-
+                                        @foreach ($contribuable->montantContribuable as $montant)
+                                            @if($natureRecetteCommunale->pivot->contribuable_id == $montant->contribuable_id && $natureRecetteCommunale->pivot->nature_recette_communale_id == $montant->nature_recette_communale_id)
+                                                <td >{{ $montant->montant_du }}</td>
+                                            @endif
+                                        @endforeach
                                         <td>
                                             <form class="d-flex justify-content-around align-item-center" action="{{ route('nature-recette-communale.destroy', $natureRecetteCommunale->id) }}" method="POST">
                                                 <a class="" href="{{ route('nature-recette-communale.show', $natureRecetteCommunale->id) }}"><i class="fa fa-fw fa-eye" style="color:#0D6EFDFF"></i></a>

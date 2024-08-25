@@ -41,15 +41,12 @@
                                     <strong>Taux Recouvrement:</strong>
                                     {{ $categorieRecette->taux_recouvrement }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Col1:</strong>
-                                    {{ $categorieRecette->col1 }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Commune :</strong>
 
-                                    {{ $categorieRecette->commune->nom }}
-                                </div>
+{{--                                <div class="form-group mb-2 mb20">--}}
+{{--                                    <strong>Commune :</strong>--}}
+
+{{--                                    {{ $categorieRecette->commune->nom }}--}}
+{{--                                </div>--}}
 
                     </div>
                 </div>

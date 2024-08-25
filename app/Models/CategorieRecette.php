@@ -27,16 +27,10 @@ class CategorieRecette extends Model
         return $this->belongsToMany(Contribuable::class);
     }
 
-    public function commune():BelongsTo
-    {
-        return $this->belongsTo(Commune::class);
-    }
-
-    public function services():HasMany
-    {
-        return $this->hasMany(Service::class);
-    }
-
+//    public function commune():BelongsTo
+//    {
+//        return $this->belongsTo(Commune::class);
+//    }
     public function sousCategorieRecettes():HasMany
     {
         return $this->hasMany(SousCategorieRecette::class);

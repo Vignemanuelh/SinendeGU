@@ -20,52 +20,54 @@
                     </div>
 
                     <div class="card-body bg-white">
-
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Identifiant:</strong>
-                                    {{ $contribuable->identifiant }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Nom:</strong>
-                                    {{ $contribuable->nom }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Prenom:</strong>
-                                    {{ $contribuable->prenom }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Date Naissance:</strong>
-                                    {{ $contribuable->date_naissance }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Npi:</strong>
-                                    {{ $contribuable->npi }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Email:</strong>
-                                    {{ $contribuable->email }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Telephone:</strong>
-                                    {{ $contribuable->telephone }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Activite:</strong>
-                                    {{ $contribuable->activite }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Arrondissement:</strong>
-                                    {{ $contribuable->arrondissement }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Quartier:</strong>
-                                    {{ $contribuable->quartier }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Maison:</strong>
-                                    {{ $contribuable->maison }}
-                                </div>
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Identifiant:</strong>
+                            {{ $contribuable->identifiant }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Nom:</strong>
+                            {{ $contribuable->nom }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Prenom:</strong>
+                            {{ $contribuable->prenom }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Date Naissance:</strong>
+                            {{ $contribuable->date_naissance }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Npi:</strong>
+                            {{ $contribuable->npi }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Email:</strong>
+                            {{ $contribuable->email }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Telephone:</strong>
+                            {{ $contribuable->telephone }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Activite:</strong>
+                            {{ $contribuable->activite }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Arrondissement:</strong>
+                            {{ $contribuable->arrondissement }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Quartier:</strong>
+                            {{ $contribuable->quartier }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Maison:</strong>
+                            {{ $contribuable->maison }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Commune :</strong>
+                            {{ $categorieRecette->commune->nom }}
+                        </div>
                     </div>
                 </div>
             </div>

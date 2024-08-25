@@ -15,16 +15,6 @@
                             @csrf
                             <div class="row padding-1 p-1">
                                 <div class="col-md-12">
-                                    <div class="d-flex flex-column form-group  mb-2 mb20">
-                                        <label for="commune_id" class="form-label">{{ __('Commune') }}</label>
-                                        <select id="commune_id" class="form-control select2 @error('commune_id') is-invalid @enderror" name="commune_id" >
-                                            <option value="">Choisir une commune</option>
-                                            @foreach($communes as $commune)
-                                                <option value="{{ $commune->id }}">{{ $commune->nom }}</option>
-                                            @endforeach
-                                        </select>
-                                        {!! $errors->first('commune_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-                                    </div>
                                     <div class="form-group row">
                                         <div class="form-group mb-2 col-6 mb20">
                                             <label for="code" class="form-label">{{ __('Code') }}</label>

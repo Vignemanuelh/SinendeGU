@@ -28,6 +28,7 @@ class ContribuableFactory extends Factory
             'arrondissement' => $this->faker->city,
             'quartier' => $this->faker->streetName,
             'maison' => $this->faker->buildingNumber,
+            'commune_id' => $this->faker->numberBetween(1,10),
         ];
     }
 }

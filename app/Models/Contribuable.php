@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -21,7 +22,8 @@ class Contribuable extends Model
         'activite',
         'arrondissement',
         'quartier',
-        'maison'
+        'maison',
+        'commune_id'
     ];
 
     public function categorieRecettes():BelongsToMany
@@ -31,16 +33,18 @@ class Contribuable extends Model
 
     public function natureRecettes():BelongsToMany
     {
-        return $this->belongsToMany(NatureRecetteCommunale::class, 'contribuable_nature_recette');
+        return $this->belongsToMany(NatureRecetteCommunale::class, 'contribuable_nature_recettes');
     }
-
-    public function natureRecetteCommunales():HasMany
+    public function paiements():BelongsToMany
     {
-        return $this->hasMany(NatureRecetteCommunale::class);
+        return $this->belongsToMany(NatureRecetteCommunale::class, 'paiements');
     }
-
-    public function services():HasMany
+    public function communes():BelongsTo
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsTo(Commune::class);
+    }
+    public function montantContribuable():HasMany
+    {
+        return $this->hasMany(ContribuableNatureRecette::class);
     }
 }

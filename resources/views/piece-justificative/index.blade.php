@@ -34,6 +34,7 @@
 
 									<th >Code</th>
 									<th >Nom</th>
+									<th >Nature recette communale</th>
 
                                         <th>Actions</th>
                                     </tr>
@@ -45,6 +46,7 @@
 
 										<td >{{ $pieceJustificative->code }}</td>
 										<td >{{ $pieceJustificative->nom }}</td>
+										<td >{{ $pieceJustificative->natureRecetteCommunale->nom }}</td>
 
                                             <td class="w-100px">
                                                 <form class="d-flex justify-content-around align-item-center" action="{{ route('piece-justificative.destroy', $pieceJustificative->id) }}" method="POST">

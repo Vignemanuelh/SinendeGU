@@ -10,6 +10,8 @@ use App\Http\Controllers\PieceJustificativeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Actions\ActionController;
+use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\ContribuableNatureRecetteCommunaleController;
 
 Route::get('/pro', function () {
     return view('welcome');
@@ -59,6 +61,8 @@ Route::group(['middleware' => ['auth','role:taux/tarif/montant du par chaque con
 
 Route::group(['middleware' => ['auth','role:Liste des recettes non fiscales,taux/tarif/montant de chaque nature de recettes non fiscales,Liste des recettes fiscales,taux/tarif/montant de chaque nature de recettes fiscales,Liste des contribuables des recettes non fiscales,Liste des contribuables des recettes fiscales,taux/tarif/montant du par chaque contribuable']],
     function () {
+    Route::resource('contribuable_nature_recette', ContribuableNatureRecetteCommunaleController::class);
+    Route::resource('paiement', PaiementController::class);
     Route::resource('commune', CommuneController::class);
     Route::resource('categorie-recette', CategorieRecetteController::class);
     Route::resource('sous-categorie-recette', SousCategorieRecetteController::class);

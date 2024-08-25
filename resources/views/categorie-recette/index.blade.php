@@ -37,8 +37,7 @@
 									<th >Montant Estime</th>
 									<th >Montant Recouvre</th>
 									<th >Taux Recouvrement</th>
-									<th >Col1</th>
-									<th >Commune </th>
+{{--									<th >Commune </th>--}}
 
                                         <th>Actions</th>
                                     </tr>
@@ -53,8 +52,7 @@
 										<td >{{ $categorieRecette->montant_estime }}</td>
 										<td >{{ $categorieRecette->montant_recouvre }}</td>
 										<td >{{ $categorieRecette->taux_recouvrement }} %</td>
-										<td >{{ $categorieRecette->col1 }}</td>
-										<td >{{ $categorieRecette->commune->nom }}</td>
+{{--										<td >{{ $categorieRecette->commune->nom }}</td>--}}
                                             <td>
                                                 <form class="d-flex justify-content-around align-item-center" action="{{ route('categorie-recette.destroy', $categorieRecette->id) }}" method="POST">
                                                     <a class="" href="{{ route('categorie-recette.show', $categorieRecette->id) }}"><i class="fa fa-fw fa-eye" style="color: #0d6efd"></i></a>

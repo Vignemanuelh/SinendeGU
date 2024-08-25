@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('piece_justificatives', function (Blueprint $table) {
+        Schema::create('paiements', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->string('nom');
-            $table->foreignId('nature_recette_communale_id')->constrained();
-
+            $table->foreignId('contribuable_id')->constrained()->onDelete('cascade');
+            $table->foreignId('nature_recette_communale_id')->constrained()->onDelete('cascade');
+            $table->date('date_paiement');
+            $table->decimal('montant');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('piece_justificatives');
+        Schema::dropIfExists('paiements');
     }
 };

@@ -23,6 +23,11 @@ class NatureRecetteCommunale extends Model
         'sous_categorie_recette_id'
     ];
 
+    public function piecesJustificatives():HasMany
+    {
+        return $this->hasMany(PieceJustificative::class);
+    }
+
     public function sousCategorieRecette():BelongsTo
     {
         return $this->belongsTo(SousCategorieRecette::class);
@@ -32,12 +37,10 @@ class NatureRecetteCommunale extends Model
     {
         return $this->belongsToMany(Contribuable::class, 'contribuable_nature_recette', 'nature_recette_communale_id', 'contribuable_id');
     }
-
-    public function service():BelongsTo
+    public function paiementContribuables():BelongsToMany
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsToMany(Contribuable::class, 'paiements', 'nature_recette_communale_id', 'contribuable_id');
     }
-
     public function contribuable():BelongsTo
     {
         return $this->belongsTo(Contribuable::class);

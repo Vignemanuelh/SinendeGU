@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('arrondissement');
             $table->string('quartier');
             $table->string('maison');
+            $table->foreignId('commune_id')->constrained();
             $table->timestamps();
         });
     }

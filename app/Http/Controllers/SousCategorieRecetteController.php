@@ -37,7 +37,6 @@ class SousCategorieRecetteController extends Controller
             'montant_estime' => 'required|decimal:2',
             'montant_recouvre' => 'required|decimal:2',
             'taux_recouvrement' => 'required|decimal:2',
-//            'service_id' => 'required|exists:services,id',
             'categorie_recette_id' => 'required|exists:categorie_recettes,id',
         ]);
 
@@ -47,7 +46,6 @@ class SousCategorieRecetteController extends Controller
         $sousCategorieRecette->montant_estime = $request->montant_estime;
         $sousCategorieRecette->montant_recouvre = $request->montant_recouvre;
         $sousCategorieRecette->taux_recouvrement = $request->taux_recouvrement;
-//        $sousCategorieRecette->service_id = $request->service_id;
         $sousCategorieRecette->categorie_recette_id = $request->categorie_recette_id;
         $sousCategorieRecette->save();
 

@@ -19,8 +19,8 @@ class Commune extends Model
         'population'
     ];
 
-    public function categorieRecettes():HasMany
+    public function contribuables():HasMany
     {
-        return $this->hasMany(CategorieRecette::class);
+        return $this->hasMany(Contribuable::class);
     }
 }

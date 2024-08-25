@@ -156,6 +156,22 @@
                         </span>
                     </a>
                 </div>
+                <div class="menu-item mb-1">
+                    <a href="{{ route('contribuable_nature_recette.index') }}">
+                        <span class="menu-link">
+                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-title">Contribuable nature recette</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="menu-item mb-1">
+                    <a href="{{ route('paiement.index') }}">
+                        <span class="menu-link">
+                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-title">Paiement</span>
+                        </span>
+                    </a>
+                </div>
             </div>
             <!--end::Menu-->
         </div>

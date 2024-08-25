@@ -20,11 +20,6 @@ class SousCategorieRecette extends Model
         'categorie_recette_id'
     ];
 
-    public function service():BelongsTo
-    {
-        return $this->belongsTo(Service::class);
-    }
-
     public function categorieRecette():BelongsTo
     {
         return $this->belongsTo(CategorieRecette::class);

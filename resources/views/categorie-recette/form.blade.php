@@ -1,19 +1,19 @@
 <div class="row padding-1 p-1">
     <div class="col-md-12">
-        <div class="row">
-            <div class="form-group col-12 mb-2 mb20">
-            <div class="d-flex flex-column">
-                <label for="commune_id" class="form-label">{{ __('Commune') }}</label>
-                <select id="commune_id" class="form-control select2" name="commune_id">
-                    <option value="{{ $categorieRecette->commune_id }}">{{$categorieRecette->commune->nom}}</option>
-                    @foreach($communes as $commune)
-                        <option value="{{  $commune->id }}">{{ $commune->nom }}</option>
-                    @endforeach
-                </select>
-            </div>
-            {!! $errors->first('commune_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-        </div>
+{{--        <div class="row">--}}
+{{--            <div class="form-group col-12 mb-2 mb20">--}}
+{{--                <div class="d-flex flex-column">--}}
+{{--                    <label for="commune_id" class="form-label">{{ __('Commune') }}</label>--}}
+{{--                    <select id="commune_id" class="form-control select2" name="commune_id">--}}
+{{--                        <option value="{{ $categorieRecette->commune_id }}">{{$categorieRecette->commune->nom}}</option>--}}
+{{--                        @foreach($communes as $commune)--}}
+{{--                            <option value="{{  $commune->id }}">{{ $commune->nom }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--                {!! $errors->first('commune_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="form-group row">
             <div class="form-group col-6 mb-2 mb20">
                 <label for="code" class="form-label">{{ __('Code') }}</label>
@@ -58,11 +58,6 @@
                 </div>
             </div>
             {!! $errors->first('taux_recouvrement', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-        </div>
-            <div class="form-group col-6 mb-2 mb20">
-            <label for="col1" class="form-label">{{ __('Col1') }}</label>
-            <input type="text" name="col1" class="form-control @error('col1') is-invalid @enderror" value="{{$categorieRecette->col1}}" id="col1" placeholder="Col1">
-            {!! $errors->first('col1', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ class CategorieRecetteController extends Controller
     public function index()
     {
         try {
-            $categorieRecettes = CategorieRecette::with('commune')->paginate();
+            $categorieRecettes = CategorieRecette::paginate();
             return view('categorie-recette.index', ['categorieRecettes' => $categorieRecettes]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -21,8 +21,7 @@ class CategorieRecetteController extends Controller
     public function create()
     {
         try {
-            $communes = Commune::all();
-            return view('categorie-recette.create', ['communes' => $communes]);
+            return view('categorie-recette.create');
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -36,8 +35,7 @@ class CategorieRecetteController extends Controller
             'montant_estime' => 'nullable|decimal:2',
             'montant_recouvre' => 'nullable|decimal:2',
             'taux_recouvrement' => 'nullable|decimal:2',
-            'commune_id' => 'required|exists:communes,id',
-            'col1' => 'required|string',
+//            'commune_id' => 'required|exists:communes,id',
         ]);
 
         $categorieRecette = new CategorieRecette();
@@ -46,8 +44,7 @@ class CategorieRecetteController extends Controller
         $categorieRecette->montant_estime = $request->montant_estime;
         $categorieRecette->montant_recouvre = $request->montant_recouvre;
         $categorieRecette->taux_recouvrement = $request->taux_recouvrement;
-        $categorieRecette->commune_id = $request->commune_id;
-        $categorieRecette->col1 = $request->col1;
+//        $categorieRecette->commune_id = $request->commune_id;
         $categorieRecette->save();
 
         return redirect()->route('categorie-recette.index')->with('status', 'La catégorie de recette a été ajoutée');
@@ -56,7 +53,7 @@ class CategorieRecetteController extends Controller
     public function show(CategorieRecette $categorieRecette)
     {
         try {
-            $categorieRecette = CategorieRecette::with('commune')->find($categorieRecette->id);
+            $categorieRecette = CategorieRecette::find($categorieRecette->id);
             return view('categorie-recette.show', ['categorieRecette' => $categorieRecette]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -66,9 +63,9 @@ class CategorieRecetteController extends Controller
     public function edit(CategorieRecette $categorieRecette)
     {
         try {
-            $categorieRecette = CategorieRecette::with('commune')->find($categorieRecette->id);
-            $communes = Commune::all();
-            return view('categorie-recette.edit', ['categorieRecette' => $categorieRecette, 'communes' => $communes]);
+            $categorieRecette = CategorieRecette::find($categorieRecette->id);
+//            $communes = Commune::all();
+            return view('categorie-recette.edit', ['categorieRecette' => $categorieRecette]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -82,8 +79,7 @@ class CategorieRecetteController extends Controller
             'montant_estime' => 'nullable|decimal:2',
             'montant_recouvre' => 'nullable|decimal:2',
             'taux_recouvrement' => 'nullable|decimal:2',
-            'commune_id' => 'required|exists:communes,id',
-            'col1' => 'required|string',
+//            'commune_id' => 'required|exists:communes,id',
         ]);
 
         $categorieRecette->code = $request->code;
@@ -91,8 +87,7 @@ class CategorieRecetteController extends Controller
         $categorieRecette->montant_estime = $request->montant_estime;
         $categorieRecette->montant_recouvre = $request->montant_recouvre;
         $categorieRecette->taux_recouvrement = $request->taux_recouvrement;
-        $categorieRecette->commune_id = $request->commune_id;
-        $categorieRecette->col1 = $request->col1;
+//        $categorieRecette->commune_id = $request->commune_id;
         $categorieRecette->save();
 
         return redirect()->route('categorie-recette.index')->with('status', 'La catégorie de recette a été modifiée');
