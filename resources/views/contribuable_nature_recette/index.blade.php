@@ -33,8 +33,8 @@
                                 <thead class="thead">
                                 <tr>
                                     <th>No</th>
-                                    <th>Contribuable ID</th>
-                                    <th>Nature Recette Communale ID</th>
+                                    <th>Contribuable </th>
+                                    <th>Nature Recette Communale </th>
                                     <th>Montant Dû</th>
                                     <th>Actions</th>
                                 </tr>
@@ -43,8 +43,16 @@
                                 @foreach ($contribuableNatureRecettes as $item)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $item->contribuable_id }}</td>
-                                        <td>{{ $item->nature_recette_communale_id }}</td>
+                                        @foreach($contribuables as $contribuable)
+                                            @if($item->contribuable_id == $contribuable->id)
+                                                <td>{{ $contribuable->nom }}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach($nature_recette_communales as $nature_recette_communale)
+                                            @if($item->nature_recette_communale_id == $nature_recette_communale->id)
+                                                <td>{{ $nature_recette_communale->nom }}</td>
+                                            @endif
+                                        @endforeach
                                         <td>{{ $item->montant_du }}</td>
                                         <td>
                                             <form class="d-flex justify-content-around align-item-center" action="{{ route('contribuable_nature_recette.destroy', $item->id) }}" method="POST">

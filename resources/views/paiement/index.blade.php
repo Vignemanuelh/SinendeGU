@@ -45,8 +45,16 @@
                                 @foreach ($paiements as $paiement)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $paiement->contribuable_id }}</td>
-                                        <td>{{ $paiement->nature_recette_communale_id }}</td>
+                                        @foreach($contribuables as $contribuable)
+                                            @if($paiement->contribuable_id == $contribuable->id)
+                                                <td>{{ $contribuable->nom }}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach($nature_recette_communales as $nature_recette_communale)
+                                            @if($paiement->nature_recette_communale_id == $nature_recette_communale->id)
+                                                <td>{{ $nature_recette_communale->nom }}</td>
+                                            @endif
+                                        @endforeach
                                         <td>{{ $paiement->date_paiement }}</td>
                                         <td>{{ $paiement->montant }}</td>
                                         <td>

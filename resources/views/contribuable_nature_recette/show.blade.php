@@ -20,12 +20,20 @@
 
                     <div class="card-body bg-white">
                         <div class="form-group mb-2 mb20">
-                            <strong>Contribuable ID:</strong>
-                            {{ $contribuableNatureRecette->contribuable_id }}
+                            <strong>Contribuable :</strong>
+                            @foreach($contribuables as $contribuable)
+                                @if($contribuableNatureRecette->contribuable_id == $contribuable->id)
+                                    <td>{{ $contribuable->nom }}</td>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="form-group mb-2 mb20">
-                            <strong>Nature Recette Communale ID:</strong>
-                            {{ $contribuableNatureRecette->nature_recette_communale_id }}
+                            <strong>Nature Recette Communale :</strong>
+                            @foreach($nature_recette_communales as $nature_recette_communale)
+                                @if($contribuableNatureRecette->nature_recette_communale_id == $nature_recette_communale->id)
+                                    <td>{{ $nature_recette_communale->nom }}</td>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="form-group mb-2 mb20">
                             <strong>Montant Dû:</strong>

@@ -21,11 +21,19 @@
                     <div class="card-body bg-white">
                         <div class="form-group mb-2 mb20">
                             <strong>Contribuable:</strong>
-                            {{ $paiement->contribuable->nom }}
+                            @foreach($contribuables as $contribuable)
+                                @if($paiement->contribuable_id == $contribuable->id)
+                                    <td>{{ $contribuable->nom }}</td>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="form-group mb-2 mb20">
                             <strong>Nature Recette Communale:</strong>
-                            {{ $paiement->natureRecetteCommunale->nom }}
+                            @foreach($nature_recette_communales as $nature_recette_communale)
+                                @if($paiement->nature_recette_communale_id == $nature_recette_communale->id)
+                                    <td>{{ $nature_recette_communale->nom }}</td>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="form-group mb-2 mb20">
                             <strong>Date de Paiement:</strong>

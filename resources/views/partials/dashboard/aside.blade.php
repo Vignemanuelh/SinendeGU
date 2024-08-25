@@ -55,7 +55,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('recette-fiscale') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-dollar-sign"></i></span>
                             <span class="menu-title">Recette Fiscale</span>
                         </span>
                     </a>
@@ -63,7 +63,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('recette-non-fiscale') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-money-bill"></i></span>
                             <span class="menu-title"><R>Recette Non Fiscale</span>
                         </span>
                     </a>
@@ -71,7 +71,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('contribuable-recette-fiscale') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-coins"></i></span>
                             <span class="menu-title">Contribuable Recette Fiscale</span>
                         </span>
                     </a>
@@ -79,7 +79,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('contribuable-recette-non-fiscale') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-receipt"></i></span>
                             <span class="menu-title">Contribuable Recette Non Fiscale</span>
                         </span>
                     </a>
@@ -87,7 +87,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('contribuable-montant') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-dollar-sign"></i></span>
                             <span class="menu-title">Contribuable Montant</span>
                         </span>
                     </a>
@@ -95,7 +95,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('user.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-user"></i></span>
                             <span class="menu-title">User</span>
                         </span>
                     </a>
@@ -103,7 +103,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('role.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-user-shield"></i></span>
                             <span class="menu-title">Role</span>
                         </span>
                     </a>
@@ -111,7 +111,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('categorie-recette.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-list"></i></span>
                             <span class="menu-title">Catégorie Recette</span>
                         </span>
                     </a>
@@ -119,7 +119,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('commune.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-building"></i></span>
                             <span class="menu-title">Commune</span>
                         </span>
                     </a>
@@ -127,7 +127,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('contribuable.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-user-tie"></i></span>
                             <span class="menu-title">Contribuable</span>
                         </span>
                     </a>
@@ -135,7 +135,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('nature-recette-communale.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-city"></i></span>
                             <span class="menu-title">Nature Recette Communale</span>
                         </span>
                     </a>
@@ -143,7 +143,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('piece-justificative.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-file-invoice"></i></span>
                             <span class="menu-title">Pièce Justificative</span>
                         </span>
                     </a>
@@ -151,7 +151,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('sous-categorie-recette.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-layer-group"></i></span>
                             <span class="menu-title">Sous Catégorie Recette</span>
                         </span>
                     </a>
@@ -159,7 +159,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('contribuable_nature_recette.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-file-alt"></i></span>
                             <span class="menu-title">Contribuable nature recette</span>
                         </span>
                     </a>
@@ -167,7 +167,7 @@
                 <div class="menu-item mb-1">
                     <a href="{{ route('paiement.index') }}">
                         <span class="menu-link">
-                            <span class="menu-icon"><i class="fa fa-solid fa-rocket"></i></span>
+                            <span class="menu-icon"><i class="fas fa-credit-card"></i></span>
                             <span class="menu-title">Paiement</span>
                         </span>
                     </a>
