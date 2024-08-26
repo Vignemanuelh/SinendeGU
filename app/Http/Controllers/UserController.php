@@ -87,7 +87,7 @@ class UserController extends Controller
             'prenom' => 'required|string',
             'titre' => 'required|string',
             'email' => 'required|email|unique:users,email,' . $user->id,
-//            'password' => 'nullable|string|confirmed',
+            'password' => 'nullable|string|confirmed',
             'telephone' => 'required|string',
             'npi' => 'required|string|unique:users,npi,' . $user->id,
             'roles' => 'required|array',
@@ -97,9 +97,9 @@ class UserController extends Controller
         $user->prenom = $request->prenom;
         $user->titre = $request->titre;
         $user->email = $request->email;
-//        if ($request->filled('password')) {
-//            $user->password = bcrypt($request->password);
-//        }
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
         $user->telephone = $request->telephone;
         $user->npi = $request->npi;
         $user->save();

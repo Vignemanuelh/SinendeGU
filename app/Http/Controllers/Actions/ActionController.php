@@ -34,6 +34,7 @@ class   ActionController extends Controller
      public function contribuableFiscale(){
             try {
                 $contribuables = CategorieRecette::find(1)->contribuables()->paginate();
+                dd($contribuables);
                 return view('contribuables.recettes-fiscales', ['contribuables' => $contribuables]);
             }catch(Exception $e){
                 return $e->getMessage();

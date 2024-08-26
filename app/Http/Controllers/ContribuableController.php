@@ -47,6 +47,8 @@ class ContribuableController extends Controller
             'quartier' => 'required|string',
             'maison' => 'required|string',
             'commune_id'=>'required|exists:communes,id',
+            'recettes' => 'required|array',
+            'natures' => 'required|array',
         ]);
 
         $contribuable = new Contribuable();
@@ -106,6 +108,8 @@ class ContribuableController extends Controller
             'quartier' => 'required|string',
             'maison' => 'required|string',
             'commune_id'=>'required|exists:communes,id',
+            'recettes' => 'required|array',
+            'natures' => 'required|array',
         ]);
 
         $contribuable->identifiant = $request->identifiant;
